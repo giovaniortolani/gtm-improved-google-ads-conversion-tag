@@ -59,6 +59,33 @@ ___TEMPLATE_PARAMETERS___
   },
   {
     "type": "GROUP",
+    "name": "eventNameGroup",
+    "displayName": "Event Name",
+    "groupStyle": "ZIPPY_OPEN",
+    "subParams": [
+      {
+        "type": "SELECT",
+        "name": "eventName",
+        "macrosInSelect": true,
+        "selectItems": [
+          {
+            "value": "conversion",
+            "displayValue": "conversion"
+          },
+          {
+            "value": "purchase",
+            "displayValue": "purchase"
+          }
+        ],
+        "simpleValueType": true,
+        "help": "The Event Name to be used in your tag.\n\nGoogle Ads conversions use \u0027conversion\u0027, by default. When used with cart data it must use \u0027purchase\u0027 as stated in documentation.\n\nFloodlight tags use the same rule. Event name is \u0027conversion\u0027, by default. When configured to track a sale, it must use \u0027purchase\u0027.\n\nSee Documentation section below",
+        "alwaysInSummary": false,
+        "displayName": "Event Name to be used"
+      }
+    ]
+  },
+  {
+    "type": "GROUP",
     "name": "parametersGroup",
     "displayName": "Event Parameters",
     "groupStyle": "ZIPPY_OPEN",
@@ -206,7 +233,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "documentation",
-        "displayName": "\u003ca href\u003d\"https://support.google.com/google-ads/answer/7521212?hl\u003den\"\u003eGoogle Tag (gtag)\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/7548399?hl\u003den\"\u003eGoogle Ads Conversion tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9888656?hl\u003den\"\u003eGoogle Ads Enhanced Conversions\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/12077475?hl\u003den\"\u003eGoogle Ads Conversions with New Customer Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9028614?hl\u003den\"\u003eGoogle Ads Conversions with Cart Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/6386790?hl\u003den\"\u003eGoogle Ads Conversions with Transaction ID and Value\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9606827?hl\u003den\"\u003eDisable the collection of personalized advertising data\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nInspired by: \u003ca href\u003d\"https://github.com/WebMechanix/gtm-improved-ga4\"\u003eWebmechanix Improved GA4 Tag Template for GTM\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nREADME: \u003ca href\u003d\"https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/tree/main\"\u003eGitHub Repository\u003c/a\u003e"
+        "displayName": "\u003ca href\u003d\"https://support.google.com/google-ads/answer/7521212?hl\u003den\"\u003eGoogle Tag (gtag)\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/campaignmanager/answer/7554821?hl\u003den\"\u003eGoogle Ads Conversion tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/7548399?hl\u003den\"\u003eFloodlight tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9888656?hl\u003den\"\u003eGoogle Ads Enhanced Conversions\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/12077475?hl\u003den\"\u003eGoogle Ads Conversions with New Customer Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9028614?hl\u003den\"\u003eGoogle Ads Conversions with Cart Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/6386790?hl\u003den\"\u003eGoogle Ads Conversions with Transaction ID and Value\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9606827?hl\u003den\"\u003eDisable the collection of personalized advertising data\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nInspired by: \u003ca href\u003d\"https://github.com/WebMechanix/gtm-improved-ga4\"\u003eWebmechanix Improved GA4 Tag Template for GTM\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nREADME: \u003ca href\u003d\"https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/tree/main\"\u003eGitHub Repository\u003c/a\u003e"
       }
     ]
   }
@@ -235,7 +262,7 @@ const log = (messagePrefix, data) => {
   // or
   // - production, if the checkbox data.enableLog is checked.
   const isInPreviewOrDebugMode = getContainerVersion().previewMode || getContainerVersion().debugMode;
-  if (data.enableLog || isInPreviewOrDebugMode) {
+  if (data.enableLog || isInPreviewOrDebugMode) { 
     logToConsole('[Improved Google Ads Conversion Tag using gtag] - ' + messagePrefix, data);
   }
 };
@@ -286,7 +313,7 @@ const getGlobal = () => {
 // And it just needs to load once.
 const injectGoogleTagScript = (conversionId) => {
   const gtagAlreadyInjected = copyFromWindow(gtagInjectedByGTMTemplate);
-  if (!data.shouldInjectGtag) return;
+  if (!data.shouldInjectGtag) return; 
   if (gtagAlreadyInjected) return;
   const scriptUrl = 'https://www.googletagmanager.com/gtag/js?id=' + conversionId + '&l=' + dataLayerName + '&cx=c';
   log('loading gtag script: ', scriptUrl);
@@ -295,29 +322,30 @@ const injectGoogleTagScript = (conversionId) => {
 
 const main = () => {
   log('data: ', data);
-
+  
   const gtag = getGlobal();
-
+  
   const parameters = mergeSettings('parametersFromVariable', 'parametersList');
   const userData = mergeSettings('userDataFromVariable', 'userDataList');
   log('userData: ', userData);
   if (Object.entries(userData).length) { // Checking if it's not empty.
     // https://support.google.com/google-ads/answer/13258081?hl=en&ref_topic=11337914
     // Enhanced Conversions works without allow_enhanced_conversions = true, but it doesn't hurt to add.
-    parameters.allow_enhanced_conversions =  true;
+    parameters.allow_enhanced_conversions =  true; 
     parameters.user_data = userData;
   }
   parameters.send_to = createSendToArray(data.conversionIdAndLabelList);
-  parameters.from_gtag = true; // To signal that it comes from gtag.
+  parameters.from_gtm_template = true; // To signal that it comes from this template.
   log('eventParameters: ', parameters);
-  const eventName = parameters.items ? 'purchase' : 'conversion'; // Conversion with cart data must use 'purchase' as stated in documentation.
+  
+  const eventName = data.eventName;
   log('eventName: ', eventName);
-
+  
   gtag('event', eventName, parameters);
-
+  
   const arbitraryConversionId = parameters.send_to[0].split('/')[0];
   injectGoogleTagScript(arbitraryConversionId);
-
+  
   data.gtmOnSuccess();
 };
 
@@ -533,4 +561,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 11/15/2023, 1:46:36 PM
+Created on 11/15/2023, 2:54:53 PM
+
+
