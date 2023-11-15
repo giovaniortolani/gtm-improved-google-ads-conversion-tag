@@ -13,9 +13,9 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "Improved Google Ads Conversion Tags using gtag",
+  "displayName": "Improved Google Ads Conversion Tag using gtag",
   "categories": [
-    "ANALYTICS",
+    "CONVERSIONS",
     "ADVERTISING",
     "MARKETING"
   ],
