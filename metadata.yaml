@@ -1,2 +1,5 @@
-homepage: "https://www.webmechanix.com"
-documentation: "https://github.com/WebMechanix/gtm-improved-ga4"
+homepage: "https://www.linkedin.com/in/giovani-ortolani-barbosa/"
+documentation: "https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag"
+versions:
+  - sha: eb34e80f8a1abebdad9ff5c660c6daecc418dd58
+    changeNotes: Initial release.
