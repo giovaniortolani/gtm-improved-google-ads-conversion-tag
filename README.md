@@ -19,6 +19,12 @@ This tag template won't be for everyone. This template is geared more toward GTM
     6. [Google Ads Conversions with Transaction ID and Value](https://support.google.com/google-ads/answer/6386790?hl=en)
     7. [Disable the collection of personalized advertising data](https://support.google.com/google-ads/answer/9606827?hl=en)
 
+## Example
+Below you will find a possible configuration scenario for a tag.
+![image](https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/assets/9199996/33906b9f-6c18-4848-a062-76d51b958b22)
+
+You can use all the parameters that are listed in `gtag` documentation for Google Ads Conversion or Floodlight tags.
+
 ## Limitations
 
 ### dataLayer
