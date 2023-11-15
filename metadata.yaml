@@ -1,5 +1,5 @@
 homepage: "https://www.linkedin.com/in/giovani-ortolani-barbosa/"
 documentation: "https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag"
 versions:
-  - sha: 1c3e9d6314089e176ea386aedf2eae1aea9468d0
+  - sha: 9ed6b7940845a3186e53a1fb1020cf3cc557ff34
     changeNotes: Initial release.
