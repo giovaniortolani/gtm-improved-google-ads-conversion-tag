@@ -23,7 +23,7 @@ ___INFO___
     "id": "brand_dummy",
     "displayName": "Giovani Ortolani Barbosa"
   },
-  "description": "Modified version of WebMachanix Improved GA4 Tag but for Google Ads conversion tag.",
+  "description": "Modified version of WebMachanix Improved GA4 Tag but for Google Ads conversion tag and Floodlight pixels.",
   "containerContexts": [
     "WEB"
   ]
@@ -54,7 +54,7 @@ ___TEMPLATE_PARAMETERS___
       }
     ],
     "alwaysInSummary": true,
-    "help": "Add the \u003cb\u003eConversion ID\u003c/b\u003e (with the prefixes, such as: AW, DC, MC and so on) and \u003cb\u003eConversion Label(s)\u003c/b\u003e.\n\u003c/br\u003e\n\u003c/br\u003e\nSome Conversion ID prefixes possibilities:\n\u003c/br\u003e\nAW: Google Ads\n\u003c/br\u003e\nMC: Merchant Center\n\u003c/br\u003e\nDC: Double Click (Display \u0026 Video 360, Search Ads 360, Campaign Manager 360 etc.).\n\u003c/br\u003e\n\u003c/br\u003e\nThe \u003cb\u003eConversion Label\u003c/b\u003e can be a single label or a comma-separated list of labels.\n\u003c/br\u003e\n\u003c/br\u003e\nExamples:\n\u003c/br\u003e\n- Conversion ID (String): AW-123123 or DC-565645 etc.\n\u003c/br\u003e\n- Conversion Label (String): (for AW) \u0026lt;Conversion Label\u0026gt; or \u0026lt;Conversion Label 1\u0026gt;,\u0026lt;Conversion Label 2\u0026gt;,\u0026lt;Conversion Label N\u0026gt; or (for DC) [activityGroupTagString]/[activityTagString]+[countingMethod]",
+    "help": "Add the \u003cb\u003eConversion ID\u003c/b\u003e (with the prefixes, such as: AW, DC, MC and so on) and \u003cb\u003eConversion Label(s)\u003c/b\u003e.\n\u003c/br\u003e\n\u003c/br\u003e\nSome Conversion ID prefixes possibilities:\n\u003c/br\u003e\nAW: Google Ads\n\u003c/br\u003e\nMC: Merchant Center\n\u003c/br\u003e\nDC: Double Click (Display \u0026 Video 360, Search Ads 360, Campaign Manager 360 etc.).\n\u003c/br\u003e\n\u003c/br\u003e\nThe \u003cb\u003eConversion Label\u003c/b\u003e can be a single label or a comma-separated list of labels.\n\u003c/br\u003e\n\u003c/br\u003e\nExamples:\n\u003c/br\u003e\n- Conversion ID (String): AW-123123 or DC-565645 etc.\n\u003c/br\u003e\n- Conversion Label (String):\n\u003cul\u003e\u003cli\u003efor Google Ads Conversions\u003c/li\u003e\u003c/ul\u003e \nConversionLabel1,ConversionLabel2,ConversionLabelN\n\u003cul\u003e\u003cli\u003efor Floodlight tags\u003c/li\u003e\u003c/ul\u003e \nactivityGroupTagString1/activityTagString1+countingMethod1,[...]",
     "displayName": "Conversion ID and Conversion Label(s)"
   },
   {
@@ -206,7 +206,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "documentation",
-        "displayName": "\u003ca href\u003d\"https://support.google.com/google-ads/answer/7521212?hl\u003den\"\u003eGoogle Tag (gtag)\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/7548399?hl\u003den\"\u003eGoogle Ads Conversion tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9888656?hl\u003den\"\u003eGoogle Ads Enhanced Conversions\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/12077475?hl\u003den\"\u003eGoogle Ads Conversions New Customer Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9028614?hl\u003den\"\u003eGoogle Ads Conversions with Cart Data\u003c/a\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/6386790?hl\u003den\"\u003eGoogle Ads Conversions with Transaction ID and Value\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9606827?hl\u003den\"\u003eDisable the collection of personalized advertising data\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nInspired by: \u003ca href\u003d\"https://github.com/WebMechanix/gtm-improved-ga4\"\u003eWebmechanix Improved GA4 Tag Template for GTM\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nREADME: \u003ca href\u003d\"https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/\"\u003eGitHub Repository\u003c/a\u003e"
+        "displayName": "\u003ca href\u003d\"https://support.google.com/google-ads/answer/7521212?hl\u003den\"\u003eGoogle Tag (gtag)\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/7548399?hl\u003den\"\u003eGoogle Ads Conversion tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9888656?hl\u003den\"\u003eGoogle Ads Enhanced Conversions\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/12077475?hl\u003den\"\u003eGoogle Ads Conversions New Customer Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9028614?hl\u003den\"\u003eGoogle Ads Conversions with Cart Data\u003c/a\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/6386790?hl\u003den\"\u003eGoogle Ads Conversions with Transaction ID and Value\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9606827?hl\u003den\"\u003eDisable the collection of personalized advertising data\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nInspired by: \u003ca href\u003d\"https://github.com/WebMechanix/gtm-improved-ga4\"\u003eWebmechanix Improved GA4 Tag Template for GTM\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nREADME: \u003ca href\u003d\"https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/tree/main\"\u003eGitHub Repository\u003c/a\u003e"
       }
     ]
   }
@@ -235,7 +235,7 @@ const log = (messagePrefix, data) => {
   // or
   // - production, if the checkbox data.enableLog is checked.
   const isInPreviewOrDebugMode = getContainerVersion().previewMode || getContainerVersion().debugMode;
-  if (data.enableLog || isInPreviewOrDebugMode) { 
+  if (data.enableLog || isInPreviewOrDebugMode) {
     logToConsole('[Improved Google Ads Conversion Tag using gtag] - ' + messagePrefix, data);
   }
 };
@@ -286,7 +286,7 @@ const getGlobal = () => {
 // And it just needs to load once.
 const injectGoogleTagScript = (conversionId) => {
   const gtagAlreadyInjected = copyFromWindow(gtagInjectedByGTMTemplate);
-  if (!data.shouldInjectGtag) return; 
+  if (!data.shouldInjectGtag) return;
   if (gtagAlreadyInjected) return;
   const scriptUrl = 'https://www.googletagmanager.com/gtag/js?id=' + conversionId + '&l=' + dataLayerName + '&cx=c';
   log('loading gtag script: ', scriptUrl);
@@ -295,16 +295,16 @@ const injectGoogleTagScript = (conversionId) => {
 
 const main = () => {
   log('data: ', data);
-  
+
   const gtag = getGlobal();
-  
+
   const parameters = mergeSettings('parametersFromVariable', 'parametersList');
   const userData = mergeSettings('userDataFromVariable', 'userDataList');
   log('userData: ', userData);
   if (Object.entries(userData).length) { // Checking if it's not empty.
     // https://support.google.com/google-ads/answer/13258081?hl=en&ref_topic=11337914
     // Enhanced Conversions works without allow_enhanced_conversions = true, but it doesn't hurt to add.
-    parameters.allow_enhanced_conversions =  true; 
+    parameters.allow_enhanced_conversions =  true;
     parameters.user_data = userData;
   }
   parameters.send_to = createSendToArray(data.conversionIdAndLabelList);
@@ -312,12 +312,12 @@ const main = () => {
   log('eventParameters: ', parameters);
   const eventName = parameters.items ? 'purchase' : 'conversion'; // Conversion with cart data must use 'purchase' as stated in documentation.
   log('eventName: ', eventName);
-  
+
   gtag('event', eventName, parameters);
-  
+
   const arbitraryConversionId = parameters.send_to[0].split('/')[0];
   injectGoogleTagScript(arbitraryConversionId);
-  
+
   data.gtmOnSuccess();
 };
 
@@ -533,6 +533,4 @@ scenarios: []
 
 ___NOTES___
 
-Created on 11/15/2023, 12:10:13 PM
-
-
+Created on 11/15/2023, 1:46:36 PM
