@@ -2,7 +2,7 @@
 A Google Ads Conversion tag template with an improved UI which allows for greater flexibility than the provided Google Ads Conversion and Floodlight tag templates from Google.
 
 ## Preface
-This tag template won't be for everyone. This template is geared more toward GTM power users with advanced implementation practices that require a more robust UI for how variables are used inside of Google Ads Conversion and Floodlight tag from Google. This tag template took inspiration from [WebMechanix Improved GA4 Tag Template for GTM](https://github.com/WebMechanix/gtm-improved-ga4) that used a similar UI pattern. Since all Google products now are shifting to using the Google Tag (gtag), it made sense to create this template using the GA4 Improved template as a foundation.
+This tag template won't be for everyone. This template is geared more toward GTM power users with advanced implementation practices that require a more robust UI for how variables are used inside of Google Ads Conversion and Floodlight tag from Google. This tag template took inspiration from [WebMechanix Improved GA4 Tag Template for GTM](https://github.com/WebMechanix/gtm-improved-ga4) created by [Derek Cavaliero](https://github.com/derekcavaliero) that used a similar UI pattern. Since all Google products now are shifting to using the Google Tag (gtag), it made sense to create this template using the GA4 Improved template as a foundation.
 
 ## What it does
 
