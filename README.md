@@ -25,6 +25,29 @@ Below you will find a possible configuration scenario for a tag.
 
 You can use all the parameters that are listed in `gtag` documentation for Google Ads Conversion or Floodlight tags.
 
+## Caveat
+
+One point of caution here is that: since we are using `gtag`, it has the power to trigger GTM triggers if the event name used in the `gtag` call is an event used by a GTM trigger.
+
+Reason: `gtag` is nothing more than a data layer push 
+```js
+window.gtag = function() { window.dataLayer.push(arguments); }.
+```
+
+Example: the call `gtag('event', 'purchase', { ... })` can trigger triggers that expect the event **'purchase'**. Whereas the call to `gtag('event', 'conversion', { ... })` can trigger triggers that expect the event **'conversion'**.
+
+By default, the **'conversion'** event was left configured, as suggested by Google Ads documentation. However, the same caution applies: be sure to check for triggers that fire on this event.
+
+Note that native Google Ads conversion tags in GTM use the **'purchase'** event. Nevertheless, no problems were identified in using **'conversion'** as the event name.
+
+However, if product information is passed in the tag (via the `items` parameter), the template will use the **'purchase'** event, as mandated by the documentation. Here it is necessary to be careful, as it will trigger some triggers that expect the **'purchase'** event.
+
+💡
+To address this issue, simply create a variable of type *Data Layer* using the `eventModel.from_gtm_template` variable from the data layer (this template inserts this key in all its events).
+
+- In the trigger, this variable should be inserted with the comparison *does not equal true*.
+- Or, if you don't want to modify the original trigger, you can use an exception trigger. Add this variable to it with the comparison *equals true*.
+
 ## Limitations
 
 ### dataLayer
