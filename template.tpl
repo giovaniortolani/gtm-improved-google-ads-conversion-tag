@@ -181,7 +181,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "shouldInjectGtag",
         "checkboxText": "Check this box if a Google Tag is not installed in your website. Make sure to add Conversion Linker tag in all pages.",
         "simpleValueType": true,
-        "help": "If the already have the gtag library being loaded (whether from a GA4 tag or from another Google product), then you are good to go. If not, then check this box to load gtag library. \u003ca href\u003d\"https://developers.google.com/tag-platform/gtagjs\"\u003eReference.\u003c/a\u003e"
+        "help": "If the GTM container already has the gtag library being loaded (whether from a GA4 tag or from another Google product), then you are good to go. If not, then check this box to load gtag library. \u003ca href\u003d\"https://developers.google.com/tag-platform/gtagjs\"\u003eReference.\u003c/a\u003e"
       }
     ]
   },
