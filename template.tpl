@@ -1,3 +1,11 @@
+___TERMS_OF_SERVICE___
+
+By creating or modifying this file you agree to Google Tag Manager's Community
+Template Gallery Developer Terms of Service available at
+https://developers.google.com/tag-manager/gallery-tos (or such other URL as
+Google may provide), as modified from time to time.
+
+
 ___INFO___
 
 {
@@ -135,6 +143,13 @@ ___TEMPLATE_PARAMETERS___
     "groupStyle": "ZIPPY_CLOSED",
     "subParams": [
       {
+        "type": "CHECKBOX",
+        "name": "enableUserData",
+        "checkboxText": "Collect User Data",
+        "simpleValueType": true,
+        "help": "Turn on user-provided data collection (manual or automatic). \u003cbr\u003e If you leave the fields below empty, then it will automatically detect user-provided data in the webpage (you might also want to check whether this option is enabled in Google Ads). \u003cbr\u003e \u003ca href\u003d\"https://support.google.com/tagmanager/answer/12131703?sjid\u003d129277455360346925-SA#Data\u0026zippy\u003d%2Callow-user-provided-data-capabilities\"\u003eReference.\u003c/a\u003e \u003cbr\u003e Otherwise, it will use the data provided in the fields. \u003cbr\u003e \u003ca href\u003d\"https://support.google.com/tagmanager/answer/13438771?hl\u003den#:~:text\u003dx-,user_data,-object\"\u003eReference.\u003c/a\u003e"
+      },
+      {
         "type": "SELECT",
         "name": "userDataFromVariable",
         "displayName": "Load User Data From Variable",
@@ -146,7 +161,14 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "simpleValueType": true,
-        "help": "You can use a variable that returns a JavaScript object with the properties you want to use. This object will be merged with any additional properties you add via the table below. Any conflicts will be resolved in favor of the properties you add to the table."
+        "help": "You can use a variable that returns a JavaScript object with the properties you want to use. This object will be merged with any additional properties you add via the table below. Any conflicts will be resolved in favor of the properties you add to the table.",
+        "enablingConditions": [
+          {
+            "paramName": "enableUserData",
+            "paramValue": true,
+            "type": "EQUALS"
+          }
+        ]
       },
       {
         "type": "SIMPLE_TABLE",
@@ -164,6 +186,13 @@ ___TEMPLATE_PARAMETERS___
             "displayName": "Value",
             "name": "value",
             "type": "TEXT"
+          }
+        ],
+        "enablingConditions": [
+          {
+            "paramName": "enableUserData",
+            "paramValue": true,
+            "type": "EQUALS"
           }
         ]
       }
@@ -320,11 +349,16 @@ const main = () => {
   const parameters = mergeSettings('parametersFromVariable', 'parametersList');
   const userData = mergeSettings('userDataFromVariable', 'userDataList');
   log('userData: ', userData);
-  if (Object.entries(userData).length) { // Checking if it's not empty.
-    // https://support.google.com/google-ads/answer/13258081?hl=en&ref_topic=11337914
-    // Enhanced Conversions works without allow_enhanced_conversions = true, but it doesn't hurt to add.
-    parameters.allow_enhanced_conversions =  true; 
-    parameters.user_data = userData;
+  // https://support.google.com/tagmanager/answer/13438771?hl=en#:~:text=x-,user_data,-object
+  if (data.enableUserData) {
+    if (Object.entries(userData).length) { // Checking if it's not empty.
+      // https://support.google.com/google-ads/answer/13258081?hl=en&ref_topic=11337914
+      // Enhanced Conversions works without allow_enhanced_conversions = true, but it doesn't hurt to add.
+      parameters.allow_enhanced_conversions =  true; 
+      parameters.user_data = userData;
+    }
+  } else {
+    parameters.user_data = null;
   }
   parameters.send_to = createSendToArray(data.conversionIdAndLabelList);
   parameters.from_gtm_template = true; // To signal that it comes from this template.
@@ -554,5 +588,3 @@ scenarios: []
 ___NOTES___
 
 Created on 11/15/2023, 3:02:02 PM
-
-
