@@ -1,5 +1,5 @@
-# Improved Google Ads Conversion Tag Template for GTM
-A Google Ads Conversion tag template with an improved UI which allows for greater flexibility than the provided Google Ads Conversion and Floodlight tag templates from Google.
+# Improved Google Marketing Tags Template for GTM
+A Google Marketing Tags tag template with an improved UI that allows for greater flexibility for *Google Ads Conversion*, *Floodlight Pixel* and *Merchant Center* tags.
 
 ## Preface
 This tag template won't be for everyone. This template is geared more toward GTM power users with advanced implementation practices that require a more robust UI for how variables are used inside of Google Ads Conversion and Floodlight tag from Google. This tag template took inspiration from [WebMechanix Improved GA4 Tag Template for GTM](https://github.com/WebMechanix/gtm-improved-ga4) created by [Derek Cavaliero](https://github.com/derekcavaliero) that used a similar UI pattern. Since all Google products now are shifting to using the Google Tag (gtag), it made sense to create this template using the GA4 Improved template as a foundation.
@@ -17,13 +17,14 @@ This tag template won't be for everyone. This template is geared more toward GTM
     4. [Google Ads Conversions with New Customer Data](https://support.google.com/google-ads/answer/12077475?hl=en)
     5. [Google Ads Conversions with Cart Data](https://support.google.com/google-ads/answer/9028614?hl=en)
     6. [Google Ads Conversions with Transaction ID and Value](https://support.google.com/google-ads/answer/6386790?hl=en)
-    7. [Disable the collection of personalized advertising data](https://support.google.com/google-ads/answer/9606827?hl=en)
+    7. [Google Merchant Center Purchase Events](https://support.google.com/merchants/answer/13071852?sjid=1187090570514687035-SA&hl=en)
+    8. [Disable the collection of personalized advertising data](https://support.google.com/google-ads/answer/9606827?hl=en)
 
 ## Example
 Below you will find a possible configuration scenario for a tag.
 ![image](https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/assets/9199996/33906b9f-6c18-4848-a062-76d51b958b22)
 
-You can use all the parameters that are listed in `gtag` documentation for Google Ads Conversion or Floodlight tags.
+You can use all the parameters that are listed in `gtag` documentation for these tags.
 
 ## Caveat
 
