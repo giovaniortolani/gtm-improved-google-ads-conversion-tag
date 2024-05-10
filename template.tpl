@@ -13,7 +13,7 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "Improved Google Ads Conversion Tag using gtag",
+  "displayName": "Improved Google Marketing Tags using gtag",
   "categories": [
     "ANALYTICS",
     "ADVERTISING",
@@ -23,7 +23,7 @@ ___INFO___
     "id": "brand_dummy",
     "displayName": "Giovani Ortolani Barbosa"
   },
-  "description": "Modified version of WebMachanix Improved GA4 Tag but for Google Ads conversion tag and Floodlight pixels.",
+  "description": "Modified version of WebMachanix Improved GA4 Tag but for Google Ads conversion tag, Floodlight pixels and Merchant Center purchase events.",
   "containerContexts": [
     "WEB"
   ]
@@ -254,7 +254,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "documentation",
-        "displayName": "\u003ca href\u003d\"https://support.google.com/google-ads/answer/7521212?hl\u003den\"\u003eGoogle Tag (gtag)\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/7548399?hl\u003den\"\u003eGoogle Ads Conversion tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/campaignmanager/answer/7554821?hl\u003den\"\u003eFloodlight tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9888656?hl\u003den\"\u003eGoogle Ads Enhanced Conversions\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/12077475?hl\u003den\"\u003eGoogle Ads Conversions with New Customer Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9028614?hl\u003den\"\u003eGoogle Ads Conversions with Cart Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/6386790?hl\u003den\"\u003eGoogle Ads Conversions with Transaction ID and Value\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9606827?hl\u003den\"\u003eDisable the collection of personalized advertising data\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nInspired by: \u003ca href\u003d\"https://github.com/WebMechanix/gtm-improved-ga4\"\u003eWebmechanix Improved GA4 Tag Template for GTM\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nREADME: \u003ca href\u003d\"https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/tree/main\"\u003eGitHub Repository\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\n⚠️\n\u003c/br\u003e\nOne point of caution here is that: since we are using \u003cb\u003egtag\u003c/b\u003e, it has the power to trigger GTM triggers if the event name used in the \u003cb\u003egtag\u003c/b\u003e call is an event used by a GTM trigger.\n\u003c/br\u003e\n\u003c/br\u003e\nReason: \u003cb\u003egtag\u003c/b\u003e is nothing more than a data layer push \u003cb\u003ewindow.gtag \u003d function() { window.dataLayer.push(arguments); }\u003c/b\u003e.\n\u003c/br\u003e\n\u003c/br\u003e\nExample: the call \u003cb\u003egtag(\u0027event\u0027, \u0027purchase\u0027, { ... })\u003c/b\u003e can trigger triggers that expect the event \u003cb\u003e\u0027purchase\u0027\u003c/b\u003e. Whereas the call to \u003cb\u003egtag(\u0027event\u0027, \u0027conversion\u0027, { ... })\u003c/b\u003e can trigger triggers that expect the event \u003cb\u003e\u0027conversion\u0027\u003c/b\u003e.\n\u003c/br\u003e\n\u003c/br\u003e\nBy default, the \u003cb\u003e\u0027conversion\u0027\u003c/b\u003e event was left configured, as suggested by Google Ads documentation. However, the same caution applies: be sure to check for triggers that fire on this event.\n\u003c/br\u003e\n\u003c/br\u003e\nNote that native Google Ads conversion tags in GTM use the \u003cb\u003e\u0027purchase\u0027\u003c/b\u003e event. Nevertheless, no problems were identified in using \u003cb\u003e\u0027conversion\u0027\u003c/b\u003e as the event name.\n\u003c/br\u003e\n\u003c/br\u003e\nHowever, if product information is passed in the tag (via the \u003cb\u003eitems\u003c/b\u003e parameter), the template will use the \u003cb\u003e\u0027purchase\u0027\u003c/b\u003e event, as mandated by the documentation. Here it is necessary to be careful, as it will trigger some triggers that expect the \u0027purchase\u0027 event.\n\u003c/br\u003e\n\u003c/br\u003e\n💡\n\u003c/br\u003e\nTo address this issue, simply create a variable of type \u003cb\u003eData Layer\u003c/b\u003e using the \u003cb\u003eeventModel.from_gtm_template\u003c/b\u003e variable from the data layer (this template inserts this key in all its events). \n\u003c/br\u003e\nIn the trigger, this variable should be inserted with the comparison \u003ci\u003edoes not equal true\u003c/i\u003e.\n\u003c/br\u003e\nOr, if you don\u0027t want to modify the original trigger, you can use an exception trigger. Add this variable to it with the comparison \u003ci\u003eequals true\u003c/i\u003e.\n\u003c/br\u003e\n\u003c/br\u003e"
+        "displayName": "\u003ca href\u003d\"https://support.google.com/google-ads/answer/7521212?hl\u003den\"\u003eGoogle Tag (gtag)\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/7548399?hl\u003den\"\u003eGoogle Ads Conversion tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/campaignmanager/answer/7554821?hl\u003den\"\u003eFloodlight tags using gtag\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9888656?hl\u003den\"\u003eGoogle Ads Enhanced Conversions\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/12077475?hl\u003den\"\u003eGoogle Ads Conversions with New Customer Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9028614?hl\u003den\"\u003eGoogle Ads Conversions with Cart Data\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/6386790?hl\u003den\"\u003eGoogle Ads Conversions with Transaction ID and Value\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/merchants/answer/13071852?sjid\u003d1187090570514687035-SA\u0026hl\u003den\"\u003eGoogle Merchant Center Purchase Events\u003c/a\u003e\n\u003c/br\u003e\n\u003ca href\u003d\"https://support.google.com/google-ads/answer/9606827?hl\u003den\"\u003eDisable the collection of personalized advertising data\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nInspired by: \u003ca href\u003d\"https://github.com/WebMechanix/gtm-improved-ga4\"\u003eWebmechanix Improved GA4 Tag Template for GTM\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\nREADME: \u003ca href\u003d\"https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/tree/main\"\u003eGitHub Repository\u003c/a\u003e\n\u003c/br\u003e\n\u003c/br\u003e\n⚠️\n\u003c/br\u003e\nOne point of caution here is that: since we are using \u003cb\u003egtag\u003c/b\u003e, it has the power to trigger GTM triggers if the event name used in the \u003cb\u003egtag\u003c/b\u003e call is an event used by a GTM trigger.\n\u003c/br\u003e\n\u003c/br\u003e\nReason: \u003cb\u003egtag\u003c/b\u003e is nothing more than a data layer push \u003cb\u003ewindow.gtag \u003d function() { window.dataLayer.push(arguments); }\u003c/b\u003e.\n\u003c/br\u003e\n\u003c/br\u003e\nExample: the call \u003cb\u003egtag(\u0027event\u0027, \u0027purchase\u0027, { ... })\u003c/b\u003e can trigger triggers that expect the event \u003cb\u003e\u0027purchase\u0027\u003c/b\u003e. Whereas the call to \u003cb\u003egtag(\u0027event\u0027, \u0027conversion\u0027, { ... })\u003c/b\u003e can trigger triggers that expect the event \u003cb\u003e\u0027conversion\u0027\u003c/b\u003e.\n\u003c/br\u003e\n\u003c/br\u003e\nBy default, the \u003cb\u003e\u0027conversion\u0027\u003c/b\u003e event was left configured, as suggested by Google Ads documentation. However, the same caution applies: be sure to check for triggers that fire on this event.\n\u003c/br\u003e\n\u003c/br\u003e\nNote that native Google Ads conversion tags in GTM use the \u003cb\u003e\u0027purchase\u0027\u003c/b\u003e event. Nevertheless, no problems were identified in using \u003cb\u003e\u0027conversion\u0027\u003c/b\u003e as the event name.\n\u003c/br\u003e\n\u003c/br\u003e\nHowever, if product information is passed in the tag (via the \u003cb\u003eitems\u003c/b\u003e parameter), the template will use the \u003cb\u003e\u0027purchase\u0027\u003c/b\u003e event, as mandated by the documentation. Here it is necessary to be careful, as it will trigger some triggers that expect the \u0027purchase\u0027 event.\n\u003c/br\u003e\n\u003c/br\u003e\n💡\n\u003c/br\u003e\nTo address this issue, simply create a variable of type \u003cb\u003eData Layer\u003c/b\u003e using the \u003cb\u003eeventModel.from_gtm_template\u003c/b\u003e variable from the data layer (this template inserts this key in all its events). \n\u003c/br\u003e\nIn the trigger, this variable should be inserted with the comparison \u003ci\u003edoes not equal true\u003c/i\u003e.\n\u003c/br\u003e\nOr, if you don\u0027t want to modify the original trigger, you can use an exception trigger. Add this variable to it with the comparison \u003ci\u003eequals true\u003c/i\u003e.\n\u003c/br\u003e\n\u003c/br\u003e"
       }
     ]
   }
@@ -311,15 +311,23 @@ const createSendToArray = (idAndLabelObjArray) => {
     return !(!label || label === 'undefined' || label === 'null');
   };
   const sendToArray = idAndLabelObjArray
-                      .reduce((acc, currentIdAndLabelObj) => {
-                        const labels = (currentIdAndLabelObj.conversionLabel || '').split(',');
-                        labels.forEach(function(label) {
-                          acc.push({ conversionId: currentIdAndLabelObj.conversionId, conversionLabel: label });
-                        });
-                        return acc;
-                      }, [])
-                      .filter(idAndLabelObj => isConversionIdValid(idAndLabelObj.conversionId) && isConversionLabelValid(idAndLabelObj.conversionLabel))
-                      .map((idAndLabelObj) => idAndLabelObj.conversionId.trim() + '/' + idAndLabelObj.conversionLabel.trim());
+        .reduce((acc, currentIdAndLabelObj) => {
+          const labels = (currentIdAndLabelObj.conversionLabel || '').split(',');
+          labels.forEach(function(label) {
+            acc.push({ conversionId: currentIdAndLabelObj.conversionId, conversionLabel: label });
+          });
+          return acc;
+        }, [])
+        .filter(idAndLabelObj => {
+          const conversionId = idAndLabelObj.conversionId;
+          const conversionLabel = idAndLabelObj.conversionLabel;
+          return isConversionIdValid(conversionId) && (conversionId.indexOf('MC-') !== -1 ? true : isConversionLabelValid(conversionLabel));
+        })
+        .map((idAndLabelObj) => {
+          const conversionId = idAndLabelObj.conversionId;
+          const conversionLabel = idAndLabelObj.conversionLabel;
+          return conversionId.trim() + (conversionId.indexOf('MC-') !== -1 ? '' : '/' + conversionLabel.trim());
+        });
   return sendToArray;
 };
 
@@ -588,3 +596,5 @@ scenarios: []
 ___NOTES___
 
 Created on 11/15/2023, 3:02:02 PM
+
+
