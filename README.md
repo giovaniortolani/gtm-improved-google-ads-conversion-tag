@@ -21,8 +21,9 @@ This tag template won't be for everyone. This template is geared more toward GTM
     8. [Disable the collection of personalized advertising data](https://support.google.com/google-ads/answer/9606827?hl=en)
 
 ## Example
-Below you will find a possible configuration scenario for a tag.
-![image](https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/assets/9199996/33906b9f-6c18-4848-a062-76d51b958b22)
+Below you will find a possible configuration scenario for a tag with 3 Google Ads conversions, 1 Floodlight pixel and 1 Merchant Center event.
+![image](https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag/assets/9199996/3992657c-0a66-47be-998e-93b8ab33a4de)
+
 
 You can use all the parameters that are listed in `gtag` documentation for these tags.
 
