@@ -1,6 +1,8 @@
 homepage: "https://www.linkedin.com/in/giovani-ortolani-barbosa/"
 documentation: "https://github.com/giovaniortolani/gtm-improved-google-ads-conversion-tag"
 versions:
+  - sha: aca870ffea21d63d8eda986194a2ab2fbf547c69
+    changeNotes: Added small improvements to template UI. Format code with Prettier.
   - sha: e3dc84dae52b4a378df53af563ab7adf8ae78de3
     changeNotes: Added support for Merchant Center purchase events.
   - sha: 7831f6d24f7501ef56a5cab97708472e5c706188
